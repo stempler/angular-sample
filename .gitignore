@@ -1,3 +1,6 @@
 # node
 /bower_components/
 /node_modules/
+
+# Sublime
+*.sublime-workspace
