@@ -1,7 +1,11 @@
-angular.module('angularSample', ['ui.bootstrap','ui.utils','ui.router','ngAnimate']);
+angular.module('angularSample', ['ui.bootstrap', 'ui.utils', 'ui.router', 'ngAnimate', 'books']);
 
 angular.module('angularSample').config(function($stateProvider, $urlRouterProvider) {
 
+    $stateProvider.state('home', {
+        url: '/home',
+        templateUrl: 'partial/home/home.html'
+    });
     /* Add New States Above */
     $urlRouterProvider.otherwise('/home');
 

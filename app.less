@@ -4,6 +4,8 @@
 @fa-font-path: "bower_components/font-awesome/fonts";
 
 /* Component LESS */
+@import "books/books.less";
+@import "partial/home/home.less";
 /* Add Component LESS Above */
 
 /* Required for Angular UI Bootstrap */
@@ -20,3 +22,19 @@
 //		.translate(0,0);
 //	}
 //}
+
+/* Simple menu bar */
+#main-menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+
+    li {
+        display: inline;
+    }
+
+    li a {
+        padding: .2em 1em;
+    }
+}

@@ -28,9 +28,16 @@
 
   <!-- Main App JS -->
   <script src="app.js"></script>
+  <script src="books/books.js"></script>
+  <script src="books/partial/bookList/bookList.js"></script>
   <!-- Add New Component JS Above -->
 
   <div>
+    <ul id="main-menu">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="bookList">Library</a></li>
+    </ul>
+
     <div id="content" class="container">
       <div class="row">
         <div ui-view>
