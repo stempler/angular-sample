@@ -1,3 +1,7 @@
+/_scripts/gen-samples.json
+/temp/
+/dist/
+
 # node
 /bower_components/
 /node_modules/
