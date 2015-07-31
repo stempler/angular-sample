@@ -11,7 +11,6 @@ angular.module('books').config(function($stateProvider) {
         templateUrl: 'books/partial/bookDetail/bookDetail.html',
         controller: function($scope, $stateParams) {
             $scope.isbn = $stateParams.isbn;
-            console.log($scope.isbn);
         }
     });
     /* Add New States Above */
