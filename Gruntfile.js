@@ -184,12 +184,20 @@ module.exports = function (grunt) {
         files: [  //this files data is also updated in the watch handler, if updated change there too
           '<%= dom_munger.data.appjs %>',
           'bower_components/angular-mocks/angular-mocks.js',
+          createFolderGlobs('*.html'), // for preprocessor
           createFolderGlobs('*-spec.js')
         ],
         logLevel:'ERROR',
         reporters:['mocha'],
         autoWatch: false, //watching is handled by grunt-contrib-watch
-        singleRun: true
+        singleRun: true,
+        // preprocessor to provide templates as part of JS
+        preprocessors: {
+          '**/*.html': 'ng-html2js'
+        },
+        ngHtml2JsPreprocessor: {
+          moduleName: 'ng'
+        }
       },
       all_tests: {
         browsers: ['PhantomJS','Chrome','Firefox']
@@ -197,12 +205,19 @@ module.exports = function (grunt) {
       during_watch: {
         browsers: ['PhantomJS']
       },
+      debug: {
+        browsers: ['Chrome'],
+        autoWatch: true,
+        singleRun: false
+      }
     }
   });
 
   grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin','clean:after']);
   grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
+
+  grunt.registerTask('debug',['dom_munger:read','karma:debug']);
 
   grunt.event.on('watch', function(action, filepath) {
     //https://github.com/gruntjs/grunt-contrib-watch/issues/156
